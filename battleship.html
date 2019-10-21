@@ -15,6 +15,13 @@
                 margin: auto;
                 background: url("board.jpg") no-repeat;
             }
+
+            div#messageArea{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                color: rgb(83, 175, 19);
+            }
         </style>
     </head>
     <body>
@@ -43,6 +50,10 @@
                     <td id="60"></td><td id="61"></td><td id="62"></td><td id="63"></td><td id="64"></td><td id="65"></td><td id="66"></td>
                 </tr>
             </table>
+            <form>
+                <input type="text" id="guessInput" placeholder="A0">
+                <input type="button" id="fireButton" value="Fire!">
+            </form>
         </div>
         <script src="battleship.js"></script>
     </body>    
