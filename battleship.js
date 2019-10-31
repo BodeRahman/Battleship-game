@@ -12,6 +12,7 @@ var view = {
         cell.setAttribute("class","miss")
     }
 };
+
 var model = {
     boardSize: 7,
     numShips: 3,
@@ -51,7 +52,17 @@ var model = {
             }
         }
         return true;
-    }
+    },
+
+    generateShipLocations: function() {
+        var locations;
+        for (var i = 0; i < this.numShips; i++) {
+            do {
+                locations = this.generateShipLocations();
+            } while (this.collision(locations));
+            this.ships[i].locations = locations;
+        }
+    },
 };
 
 function parseGuess(guess) {
@@ -91,7 +102,6 @@ var controller = {
     }
 };
 
-window.onload = init;
 function init() {
     var fireButton = document.getElementById("fireButton");
     fireButton.onclick = handleFireButton;
@@ -114,3 +124,4 @@ function handleKeyPress(e) {
     }
 }
 
+window.onload = init;
