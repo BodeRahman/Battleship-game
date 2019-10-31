@@ -65,7 +65,7 @@ function parseGuess(guess) {
         var column = guess.charAt(1);
 
         if (isNaN(row) || isNaN(column)) {
-            alert("Oops, that isn't on thr board.");
+            alert("Oops, that isn't on the board.");
         } else if (row < 0 || row >= model.boardSize ||
                     column < 0 || column >= model.boardSize) {
             alert("Oops, that's off the board!");
@@ -91,10 +91,14 @@ var controller = {
     }
 };
 
+window.onload = init;
 function init() {
     var fireButton = document.getElementById("fireButton");
     fireButton.onclick = handleFireButton;
+    var guessInput = document.getElementById("guessInput");
+    guessInput.onkeypress = handleKeyPress;
 }
+
 function handleFireButton() {
     var guessInput = document.getElementById("guessInput")
     var guess = guessInput.value;
@@ -102,3 +106,11 @@ function handleFireButton() {
 
     guessInput.value = "";
 }
+function handleKeyPress(e) {
+    var fireButton = document.getElementById("fireButton");
+    if (e.keyCode === 13) {
+        fireButton.click();
+        return false;
+    }
+}
+
