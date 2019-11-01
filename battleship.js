@@ -47,7 +47,7 @@ var model = {
     
     isSunk: function(ship) {
         for (var i = 0;i < this.shipLength; i++) {
-            if (ship.hits[i] !== "hit"){
+            if (ship.hits[i] !== "hit") {
                 return false;
             }
         }
@@ -63,6 +63,27 @@ var model = {
             this.ships[i].locations = locations;
         }
     },
+
+    generateShip: function() {
+        var direction = Maths.floor(Math.random() * 2);
+        var row, col;
+
+        if (direction === 1) {
+            // Generate a starting location for a horizontal ship
+        } else {
+            // Generate a starting location for a vertical ship
+        }
+        
+        var newShipLocations = [];
+        for (var i = 0; i < this.shipLength; i++) {
+            if  (direction === 1) {
+                // add location to array for new horizontal ship
+            } else {
+                // add location to array for new vertical ship 
+            }
+        }
+    },
+
 };
 
 function parseGuess(guess) {
